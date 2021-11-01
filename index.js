@@ -12,9 +12,9 @@ import { Provider } from 'react-redux'
 import { render } from 'react-dom'
 
 import App from './src/App'
-import rootReducer from './src/reducers/index'
+import finalReducer from './src/reducers/index'
 
-const store = createStore(rootReducer)
+const store = createStore(finalReducer)
 
 render(
   <Provider store={store}>

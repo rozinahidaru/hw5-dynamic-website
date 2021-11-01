@@ -1,8 +1,17 @@
 import { combineReducers } from 'redux'
 
-import introduction from './introduction'
+// import introduction from './introduction'
 
-const rootReducer = combineReducers({ introduction })
-console.log('in action intro')
+const introduction = (state = {}, action) => {
+  const { type, intro } = action
+  if (type === 'EDIT_INTRO') {
+    console.log('action returned true for editintro')
+    return intro
+  }
+  console.log('returned false in action for edit intro')
+  return state
+}
 
-export default rootReducer
+const finalReducer = combineReducers({ introduction })
+
+export default finalReducer
