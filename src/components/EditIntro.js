@@ -15,7 +15,7 @@ class EditIntro extends Component {
 
   render() {
     const { description, img, editing } = this.state
-    const { props } = this.props
+    // const { props } = this.props
     // const [editingState, editEditing] = useState(editing)
     // const [descrState, editDescription] = useState('')
     // const [imgState, editImage] = useState('')
