@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import EditPost from './EditPost'
-import AddPost from './AddPost'
 
 class Post extends Component {
   constructor(props) {
@@ -11,15 +10,7 @@ class Post extends Component {
     }
     this.onEditCanceled = this.onEditCanceled.bind(this)
     this.onPostChanged = this.onPostChanged.bind(this)
-    this.onPostAdded = this.onPostAdded.bind(this)
-  }
-
-  onPostAdded(title, descr, img, editing) {
-    this.setState({
-      title, descr, img, editing,
-    }, () => {
-      console.log('new post by user')
-    })
+    // this.onPostAdded = this.onPostAdded.bind(this)
   }
 
   onPostChanged(newTitle, newDescr, newImg, currEdit) {
@@ -49,8 +40,18 @@ class Post extends Component {
     return (
       <>
         <h2>Published Posts</h2>
+        <div>
+          <button
+            type="button"
+            onClick={() => this.setState({
+              title, descr, img, editing: true,
+            })}
+          >
+            Add Post
+          </button>
+        </div>
         {
-            editing ? <AddPost intro={this.state} onPostAdded={this.onPostAdded} onPostChanged={this.onPostChanged} onEditCanceled={this.onEditCanceled} />
+            editing ? <EditPost post={this.state} onPostChanged={this.onPostChanged} onEditCanceled={this.onEditCanceled} />
               : (
                 <>
                   <div>{title}</div>
@@ -59,7 +60,7 @@ class Post extends Component {
                   </div>
                   <img src={img} alt="" />
                   <div>
-                    <button type="button" onClick={() => this.setState({ title, descr, img, editing: true })}>Add Post</button>
+                    <button type="button" onClick={() => this.setState({ title, descr, img, editing: true })}>Edit Post</button>
                   </div>
                 </>
               )

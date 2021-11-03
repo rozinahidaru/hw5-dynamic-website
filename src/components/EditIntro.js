@@ -35,7 +35,7 @@ class EditIntro extends Component {
           <input type="text" name="description" placeholder="Enter your bio!" value={description} onChange={e => this.handleChange(e)} />
         </div>
         <div>
-          <input type="text" name="img" placeholder="Insert your picture's URL!" value={img} onChange={e => this.handleChange(e)} />
+          <input type="text" name="img" placeholder="Insert picture URL!" value={img} onChange={e => this.handleChange(e)} />
         </div>
         <button
           type="button"

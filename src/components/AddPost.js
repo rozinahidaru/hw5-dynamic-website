@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addPost } from '../actions'
@@ -24,9 +25,8 @@ class AddPost extends Component {
         name="postForm"
         onSubmit={e => {
           e.preventDefault()
-          console.log(this.props)
           this.props.onPostAdded(title, descr, img, false)
-          console.log(editing)
+          addPost({ title: title.value, descr: descr.value, img: img.value })
         }}
       >
         <div>
